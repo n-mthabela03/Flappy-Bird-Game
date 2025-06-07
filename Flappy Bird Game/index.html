@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Flappy Bird Game</title>
+    <!-- Link to external CSS -->
+    <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+    <div class="game-container" id="gameContainer">
+        <!-- Decorative Clouds -->
+        <div class="cloud cloud1"></div>
+        <div class="cloud cloud2"></div>
+
+        <!-- Player Character (Bird) -->
+        <div class="bird" id="bird"></div>
+
+        <!-- Score Display -->
+        <div class="score" id="score">Score: 0</div>
+
+        <!-- Start Screen UI -->
+        <div class="start-screen" id="startScreen">
+            <h1>🐦 Flappy Bird</h1>
+            <p>Click or press SPACEBAR to flap!</p>
+            <button class="start-btn" onclick="startGame()">Start Game</button>
+        </div>
+
+        <!-- Game Over UI -->
+        <div class="game-over" id="gameOver">
+            <h2>Game Over!</h2>
+            <p>Final Score: <span id="finalScore">0</span></p>
+            <button class="restart-btn" onclick="restartGame()">Play Again</button>
+        </div>
+
+        <!-- Instructions -->
+        <div class="instructions">
+            <p>🖱️ Click or press SPACEBAR to flap</p>
+        </div>
+    </div>
+
+    <!-- Link to external JavaScript -->
+    <script src="scripts.js"></script>
+</body>
+</html>

@@ -1,0 +1,279 @@
+/* ========================== */
+/* Reset and base styles      */
+/* ========================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(to bottom, #87CEEB 0%, #98FB98 100%);
+    /* Fallback background */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    overflow: hidden;
+}
+
+/* ========================== */
+/* Main game container        */
+/* ========================== */
+.game-container {
+    position: relative;
+    width: 400px;
+    height: 600px;
+
+
+
+    border: 4px solid #333;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+/* ========================== */
+/* Bird styling               */
+/* ========================== */
+.bird {
+    position: absolute;
+    width: 40px;
+    height: 30px;
+    background: #FFD700;
+    /* Yellow body */
+    border-radius: 50%;
+    left: 50px;
+    transition: transform 0.1s ease-out;
+    z-index: 10;
+    /* On top of pipes and background */
+}
+
+/* Bird eye */
+.bird::before {
+    content: '';
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    background: #000;
+    border-radius: 50%;
+    top: 8px;
+    right: 8px;
+}
+
+/* Bird beak */
+.bird::after {
+    content: '';
+    position: absolute;
+    width: 15px;
+    height: 8px;
+    background: #FF4500;
+    border-radius: 0 50% 50% 0;
+    top: 12px;
+    right: -8px;
+}
+
+/* ========================== */
+/* Pipe styling               */
+/* ========================== */
+.pipe {
+    position: absolute;
+    width: 60px;
+    background: #228B22;
+    /* Green pipe */
+    border: 2px solid #006400;
+    border-radius: 10px;
+}
+
+.pipe-top {
+    top: 0;
+}
+
+.pipe-bottom {
+    bottom: 0;
+}
+
+/* ========================== */
+/* Cloud elements             */
+/* ========================== */
+.cloud {
+    position: absolute;
+    background: white;
+    border-radius: 50px;
+    opacity: 0.8;
+    animation: float 3s ease-in-out infinite;
+}
+
+/* Extra puffs for cloud */
+.cloud::before,
+.cloud::after {
+    content: '';
+    position: absolute;
+    background: white;
+    border-radius: 50px;
+}
+
+/* Cloud 1 properties */
+.cloud1 {
+    width: 60px;
+    height: 20px;
+    top: 80px;
+    left: 100px;
+    animation-delay: 0s;
+}
+
+.cloud1::before {
+    width: 30px;
+    height: 30px;
+    top: -10px;
+    left: 10px;
+}
+
+.cloud1::after {
+    width: 40px;
+    height: 25px;
+    top: -8px;
+    right: 5px;
+}
+
+/* Cloud 2 properties */
+.cloud2 {
+    width: 40px;
+    height: 15px;
+    top: 120px;
+    right: 80px;
+    animation-delay: 1s;
+}
+
+.cloud2::before {
+    width: 20px;
+    height: 20px;
+    top: -8px;
+    left: 5px;
+}
+
+.cloud2::after {
+    width: 25px;
+    height: 18px;
+    top: -5px;
+    right: 3px;
+}
+
+/* Cloud floating animation */
+@keyframes float {
+
+    0%,
+    100% {
+        transform: translateY(0px);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+/* ========================== */
+/* UI Elements                */
+/* ========================== */
+
+/* Score display */
+.score {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
+    text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.8);
+}
+
+/* Game over message */
+.game-over {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: 30px;
+    border-radius: 15px;
+    text-align: center;
+    display: none;
+    z-index: 100;
+}
+
+.game-over h2 {
+    margin-bottom: 15px;
+    color: #ff4444;
+}
+
+/* Restart button */
+.restart-btn {
+    background: #4CAF50;
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    font-size: 16px;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-top: 15px;
+    transition: background 0.3s;
+}
+
+.restart-btn:hover {
+    background: #45a049;
+}
+
+/* Instructions text */
+.instructions {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    color: #333;
+    font-size: 14px;
+    text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.8);
+}
+
+/* Start screen layout */
+.start-screen {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    z-index: 50;
+    background: rgba(255, 255, 255, 0.9);
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+/* Start button */
+.start-btn {
+    background: #4CAF50;
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    font-size: 18px;
+    border-radius: 10px;
+    cursor: pointer;
+    margin-top: 15px;
+    transition: background 0.3s;
+}
+
+.start-btn:hover {
+    background: #45a049;
+}
+
+/* ========================== */
+/* Responsive design          */
+/* ========================== */
+@media (max-width: 480px) {
+    .game-container {
+        width: 90vw;
+        height: 70vh;
+    }
+}
